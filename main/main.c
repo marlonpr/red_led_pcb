@@ -76,7 +76,7 @@ void display_number_pwm(int number, int dp_on) {
 // --- Automatically adjust digit brightness ---
 void adjust_brightness() {
     // Rough compensation: reduce first digit slightly
-    digit_brightness[0] = 220; // adjust experimentally
+    digit_brightness[0] = 120; // adjust experimentally
     digit_brightness[1] = 255;
     digit_brightness[2] = 255;
     digit_brightness[3] = 255;
@@ -104,7 +104,7 @@ void app_main(void) {
         TickType_t now = xTaskGetTickCount();
 
         // DP blink
-        if(now - last_dp_toggle >= pdMS_TO_TICKS(500)){
+        if(now - last_dp_toggle >= pdMS_TO_TICKS(1000)){
             dp_state = !dp_state;
             last_dp_toggle = now;
         }
